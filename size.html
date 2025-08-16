@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Hub | Size Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e90ff;
+            --primary-dark: #0066cc;
+            --secondary: #f8f9fa;
+            --text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --border: #e0e0e0;
+            --success: #4CAF50;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .main-header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text);
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile Navigation */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(rgba(30, 144, 255, 0.9), rgba(30, 144, 255, 0.8)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3') center/cover;
+            color: var(--white);
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Size Guide Section */
+        .size-guide {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .instructions {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .instructions h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+        }
+
+        .step-icon {
+            background-color: rgba(30, 144, 255, 0.1);
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .step-content p {
+            color: var(--light-text);
+        }
+
+        /* Size Charts */
+        .size-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .chart-container {
+            overflow-x: auto;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .size-table th {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .size-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .size-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .size-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .size-table .highlight {
+            background-color: rgba(30, 144, 255, 0.1);
+            font-weight: 600;
+        }
+
+        /* Measurement Diagrams */
+        .diagrams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .diagram-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .diagram-img {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+            position: relative;
+        }
+
+        .diagram-img i {
+            font-size: 100px;
+            color: rgba(30, 144, 255, 0.2);
+        }
+
+        .measure-point {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .measure-line {
+            position: absolute;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .diagram-content {
+            padding: 20px;
+        }
+
+        .diagram-content h3 {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .diagram-content ul {
+            padding-left: 20px;
+        }
+
+        .diagram-content li {
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+
+        /* Tips Section */
+        .tips {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin: 50px 0;
+        }
+
+        .tips h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .tip-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .tip i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 3px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .contact-info {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                padding: 40px 20px;
+            }
+
+            .steps, .tip-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 6203811578</span>
+                <span><i class="fas fa-envelope"></i>FashionTrend360@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100018404438643"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/faishontrand?igsh=ZzVkZnNycmZ1aXBz"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/PrinceTiwariBR?t=YBz0b7UoHkchkceoOOwMCg&s=08"><i class="fab fa-twitter"></i></a>
+                <a href="https://in.pinterest.com/princetiwari360/"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="logo">Fashion<span>Hub</span></div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="arrivals.html">New Arrivals</a></li>
+                    <li><a href="size.html" class="active">Size Guide</a></li>
+                    <li><a href="contect2.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-buttons">
+                <button class="nav-btn"><i class="fas fa-search"></i></button>
+                <button class="nav-btn"><i class="fas fa-user"></i></button>
+                <button class="nav-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <h1>Size Guide</h1>
+        <p>Find your perfect fit with our comprehensive size guide. Learn how to measure yourself and choose the right size for every item.</p>
+    </section>
+
+    <!-- Size Guide Content -->
+    <section class="size-guide">
+        <!-- Measurement Instructions -->
+        <div class="instructions">
+            <h3><i class="fas fa-ruler-combined"></i> How to Measure Yourself</h3>
+            <p>For accurate measurements, wear form-fitting clothing and use a soft measuring tape. Follow these steps:</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Chest/Bust</h4>
+                        <p>Measure around the fullest part of your chest, keeping the tape parallel to the floor.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Waist</h4>
+                        <p>Measure around the narrowest part of your natural waist, usually above the belly button.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-arrows-alt-v"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Hips</h4>
+                        <p>Measure around the fullest part of your hips, approximately 8 inches below your waist.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Inseam</h4>
+                        <p>Measure from the top of your inner thigh down to the bottom of your ankle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Charts -->
+        <div class="section-title">
+            <h2>Size Charts</h2>
+        </div>
+
+        <div class="size-tabs">
+            <button class="tab-btn active">Women's Clothing</button>
+            <button class="tab-btn">Men's Clothing</button>
+            <button class="tab-btn">Footwear</button>
+            <button class="tab-btn">Accessories</button>
+        </div>
+
+        <div class="chart-container">
+            <table class="size-table">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>US</th>
+                        <th>Bust (in)</th>
+                        <th>Waist (in)</th>
+                        <th>Hips (in)</th>
+                        <th>Inseam (in)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="highlight">XS</td>
+                        <td>0-2</td>
+                        <td>31-32</td>
+                        <td>24-25</td>
+                        <td>34-35</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">S</td>
+                        <td>4-6</td>
+                        <td>33-34</td>
+                        <td>26-27</td>
+                        <td>36-37</td>
+                        <td>30.5</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">M</td>
+                        <td>8-10</td>
+                        <td>35-36</td>
+                        <td>28-29</td>
+                        <td>38-39</td>
+                        <td>31</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">L</td>
+                        <td>12-14</td>
+                        <td>37-39</td>
+                        <td>30-32</td>
+                        <td>40-42</td>
+                        <td>31.5</td>
+                    </tr>
+                    <tr>
+                        <td class="highlight">XL</td>
+                        <td>16-18</td>
+                        <td>40-42</td>
+                        <td>33-35</td>
+                        <td>43-45</td>
+                        <td>32</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Measurement Diagrams -->
+        <div class="section-title">
+            <h2>Measurement Diagrams</h2>
+        </div>
+
+        <div class="diagrams">
+            <div class="diagram-card">
+                <div class="diagram-img">
+                    <i class="fas fa-female"></i>
+                    <div class="measure-point" style="top: 30%; left: 50%;">A</div>
+                    <div class="measure-line" style="top: 30%; left: 30%; width: 40%;"></div>
+
+                    <div class="measure-point" style="top: 50%; left: 50%;">B</div>
+                    <div class="measure-line" style="top: 50%; left: 30%; width: 40%;"></div>
+
+                    <div class="measure-point" style="top: 65%; left: 50%;">C</div>
+                    <div class="measure-line" style="top: 65%; left: 30%; width: 40%;"></div>
+                </div>
+                <div class="diagram-content">
+                    <h3>Women's Measurements</h3>
+                    <ul>
+                        <li><strong>A: Bust</strong> - Fullest part of chest</li>
+                        <li><strong>B: Waist</strong> - Narrowest part of torso</li>
+                        <li><strong>C: Hips</strong> - Widest part of hips</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="diagram-card">
+                <div class="diagram-img">
+                    <i class="fas fa-male"></i>
+                    <div class="measure-point" style="top: 30%; left: 50%;">A</div>
+                    <div class="measure-line" style="top: 30%; left: 30%; width: 40%;"></div>
+
+                    <div class="measure-point" style="top: 50%; left: 50%;">B</div>
+                    <div class="measure-line" style="top: 50%; left: 30%; width: 40%;"></div>
+
+                    <div class="measure-point" style="top: 80%; left: 30%;">C</div>
+                    <div class="measure-line" style="top: 80%; left: 30%; width: 40%; height: 2px; transform: rotate(90deg); transform-origin: left top;"></div>
+                </div>
+                <div class="diagram-content">
+                    <h3>Men's Measurements</h3>
+                    <ul>
+                        <li><strong>A: Chest</strong> - Under arms, across shoulder blades</li>
+                        <li><strong>B: Waist</strong> - Natural waistline</li>
+                        <li><strong>C: Inseam</strong> - From crotch to ankle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="tips">
+            <h3><i class="fas fa-lightbulb"></i> Size Selection Tips</h3>
+            <div class="tip-list">
+                <div class="tip">
+                    <i class="fas fa-1"></i>
+                    <div>
+                        <h4>Know Your Body Type</h4>
+                        <p>Different brands may fit differently based on your body shape. Know whether you're pear, apple, or hourglass shaped.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-2"></i>
+                    <div>
+                        <h4>Check Fabric Stretch</h4>
+                        <p>Stretchy fabrics can accommodate up to one size smaller. Non-stretch fabrics need precise measurements.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-3"></i>
+                    <div>
+                        <h4>Consider Garment Style</h4>
+                        <p>Fitted styles require exact measurements while loose styles can be sized up or down.</p>
+                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-4"></i>
+                    <div>
+                        <h4>When in Doubt, Size Up</h4>
+                        <p>It's easier to take in a garment than to let it out. When between sizes, choose the larger size.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Fashion Hub</h3>
+                <p>We bring you the latest trends in fashion at affordable prices. Quality and style guaranteed.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100018404438643"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/faishontrand?igsh=ZzVkZnNycmZ1aXBz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/PrinceTiwariBR?t=YBz0b7UoHkchkceoOOwMCg&s=08"><i class="fab fa-twitter"></i></a>
+                    <a href="https://in.pinterest.com/princetiwari360/"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="#">About Us</a>
+                <a href="arrivals.html">New Arrivals</a>
+                <a href="size.html">Size Guide</a>
+                <a href="#">Sale</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQs</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> FashionStreet, Greater Noida</p>
+                <p><i class="fas fa-phone"></i> +91 6203811578</p>
+                <p><i class="fas fa-envelope"></i> FaishonTrend360@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 8PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 FashionTrand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Here you would switch between different size charts
+                // For demonstration, we'll just show an alert
+                alert(`Showing ${this.textContent} size chart`);
+            });
+        });
+
+        // Mobile Menu Toggle
+        const burger = document.querySelector('.burger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.overlay');
+        const closeMenu = document.querySelector('.close-menu');
+
+        burger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

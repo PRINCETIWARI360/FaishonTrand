@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionTrend | Premium Jeans & T-Shirts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-img">FT</div>
+                <div class="logo-text">Fashion<span>Trend</span></div>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="men.html">Men</a>
+                <a href="women.html">Women</a>
+                <a href="arrivals.html">New Arrivals</a>
+                <a href="#">Collections</a>
+                <a href="contect2.html">Contact</a>
+            </nav>
+
+            <div class="header-icons">
+                <button class="icon-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn" id="user-btn">
+                    <a href="Contect.html"> <i class="fas fa-user"></i></a>
+
+                </button>
+                <button class="icon-btn" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobile-nav">
+                <a href="#"><i class="fas fa-home"></i> Home</a>
+                <a href="#"><i class="fas fa-male"></i> Men</a>
+                <a href="#"><i class="fas fa-female"></i> Women</a>
+                <a href="#"><i class="fas fa-star"></i> New Arrivals</a>
+                <a href="#"><i class="fas fa-box-open"></i> Collections</a>
+                <a href="#"><i class="fas fa-phone"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate">
+            <h1>Elevate Your Style With Premium <span>Jeans & T-Shirts</span></h1>
+            <p>Discover The Perfect Blend Of Comfort, Quality And Fashion For Men and Women Handcrafted With Attention To Detail For The Modern Trendsetter</p>
+            <a href="#products" class="cta-btn">SHOP NOW</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <h2 class="section-title animate">Shop By Category</h2>
+    <div class="categories">
+        <div class="category-card animate delay-1">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3" alt="Men's Collection" class="category-img">
+            <a href="men.html"><div class="category-overlay">
+                <h3>Men's Collection</h3>
+                <p>Premium Jeans & T-Shirts</p>
+            </div></a>
+
+        </div>
+
+        <div class="category-card animate delay-2">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3" alt="Women's Collection" class="category-img">
+            <a href="Women.html"><div class="category-overlay">
+                <h3>Women's Collection</h3>
+                <p>Stylish Jeans & Tops</p>
+            </div></a>
+
+        </div>
+
+        <div class="category-card animate delay-3">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3" alt="New Arrivals" class="category-img">
+            <a href="arrivals.html"><div class="category-overlay">
+                <h3>New Arrivals</h3>
+                <p>Latest Fashion Trends</p>
+            </div></a>
+
+        </div>
+    </div>
+
+    <!-- Products -->
+    <h2 class="section-title" id="products">Featured Products</h2>
+    <div class="products">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search for jeans, t-shirts, brands...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <span class="product-badge">New</span>
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3" alt="Slim Fit Jeans" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Men's Premium Slim Fit Jeans</h3>
+                    <div class="product-price">₹2,499</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3" alt="Graphic T-Shirt" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Men's Graphic Print White T-Shirt</h3>
+                    <div class="product-price">₹1,199</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <span class="product-badge">Bestseller</span>
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3" alt="Women's Skinny Jeans" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Women's High-Waist Skinny Jeans</h3>
+                    <div class="product-price">₹2,299</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3" alt="Crop Top" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Women's Oversized Crop Top</h3>
+                    <div class="product-price">₹1,299</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3" alt="Denim Jacket" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Women's Classic fabric Lower</h3>
+                    <div class="product-price">₹3,499</div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <span class="product-badge">Sale</span>
+                <img src="https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?ixlib=rb-4.0.3" alt="Casual T-Shirt" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Women's Casual V-Neck T-Shirt</h3>
+                    <div class="product-price">₹999 <span style="text-decoration: line-through; color: var(--gray); font-size: 16px; margin-left: 5px;">₹1,499</span></div>
+                    <div class="product-actions">
+                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="features">
+        <h2 class="section-title" style="color: white;">Why Choose FashionTrend</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3 class="feature-title">Free Shipping</h3>
+                <p class="feature-desc">Enjoy free shipping on all orders above ₹2999 across India.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h3 class="feature-title">Easy Returns</h3>
+                <p class="feature-desc">Not satisfied? Return within 15 days for a full refund.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-title">Secure Payments</h3>
+                <p class="feature-desc">Your payments are secure with 256-bit SSL encryption.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="feature-title">24/7 Support</h3>
+                <p class="feature-desc">Our customer support team is always ready to help you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="margin-bottom: 20px; display: inline-block;">
+                    <div class="logo-img">FT</div>
+                    <div class="logo-text">Fashion<span>Trend</span></div>
+                </a>
+                <p style="margin-bottom: 20px; line-height: 1.6;">Premium jeans and t-shirts for the modern fashion enthusiast. Quality materials, perfect fit, and timeless style.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/faishontrand?igsh=ZzVkZnNycmZ1aXBz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100018404438643"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/PrinceTiwariBR?t=YBz0b7UoHkchkceoOOwMCg&s=08"><i class="fab fa-twitter"></i></a>
+                    <a href="https://in.pinterest.com/princetiwari360/"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="men.html">Men's Collection</a></li>
+                    <li><a href="women.html">Women's Collection</a></li>
+                    <li><a href="arrivals.html">New Arrivals</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="contect2.html">Contact Us</a></li>
+                    <li><a href="contect2.html">FAQs</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Return & Exchange</a></li>
+                    <li><a href="#">Track Your Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span> Fashion Street, Greater Noida </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+91 6203811578</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>fashiontrend360@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Sat: 10AM - 8PM</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 FashionTrend. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart (3)</h2>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="cart-items">
+            <!-- Cart Item 1 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3" alt="Product" class="cart-item-img">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">Men's Premium Slim Fit Jeans</div>
+                    <div class="cart-item-price">₹2,499</div>
+                    <div class="cart-item-actions">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="item-quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                        <button class="remove-item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3" alt="Product" class="cart-item-img">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">Women's High-Waist Skinny Jeans</div>
+                    <div class="cart-item-price">₹2,299</div>
+                    <div class="cart-item-actions">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="item-quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                        <button class="remove-item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Item 3 -->
+            <div class="cart-item">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3" alt="Product" class="cart-item-img">
+                <div class="cart-item-details">
+                    <div class="cart-item-title">Men's Graphic Print T-Shirt</div>
+                    <div class="cart-item-price">₹1,199</div>
+                    <div class="cart-item-actions">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="item-quantity">1</span>
+                        <button class="quantity-btn plus">+</button>
+                        <button class="remove-item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>₹5,997</span>
+            </div>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const overlay = document.getElementById('overlay');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+
+            // Change icon based on state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on overlay
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+
+            // Reset icon to bars
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+
+        // Cart functionality
+        const cartBtn = document.getElementById('cart-btn');
+        const closeCart = document.getElementById('close-cart');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const plusBtns = document.querySelectorAll('.plus');
+        const minusBtns = document.querySelectorAll('.minus');
+        const removeBtns = document.querySelectorAll('.remove-item');
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const searchInput = document.getElementById('search-input');
+
+        // Open cart
+        cartBtn.addEventListener('click', () => {
+            cartSidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close cart
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close cart when clicking on overlay
+        overlay.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Increase quantity
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const quantityElement = btn.parentElement.querySelector('.item-quantity');
+                let quantity = parseInt(quantityElement.textContent);
+                quantity++;
+                quantityElement.textContent = quantity;
+                updateTotal();
+            });
+        });
+
+        // Decrease quantity
+        minusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const quantityElement = btn.parentElement.querySelector('.item-quantity');
+                let quantity = parseInt(quantityElement.textContent);
+                if (quantity > 1) {
+                    quantity--;
+                    quantityElement.textContent = quantity;
+                    updateTotal();
+                }
+            });
+        });
+
+        // Remove item
+        removeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cartItem = btn.closest('.cart-item');
+                cartItem.remove();
+                updateCartCount();
+                updateTotal();
+            });
+        });
+
+        // Add to cart
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // In a real app, you would add the product to the cart
+                // For this demo, we'll just increase the cart count
+                const currentCount = parseInt(cartCount.textContent);
+                cartCount.textContent = currentCount + 1;
+
+                // Show a success message
+                btn.textContent = 'Added!';
+                setTimeout(() => {
+                    btn.textContent = 'Add to Cart';
+                }, 2000);
+            });
+        });
+
+        // Update cart count
+        function updateCartCount() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartCount.textContent = cartItems.length;
+        }
+
+        // Update cart total
+        function updateTotal() {
+            let total = 0;
+            const cartItems = document.querySelectorAll('.cart-item');
+
+            cartItems.forEach(item => {
+                const priceText = item.querySelector('.cart-item-price').textContent;
+                const price = parseInt(priceText.replace('₹', '').replace(',', ''));
+                const quantity = parseInt(item.querySelector('.item-quantity').textContent);
+                total += price * quantity;
+            });
+
+            document.querySelector('.cart-total span:last-child').textContent = `₹${total.toLocaleString('en-IN')}`;
+        }
+
+        // Search functionality
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.category-card, .feature-card, .product-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

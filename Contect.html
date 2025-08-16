@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login/Signup Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.8s ease-out;
+            display: flex;
+            min-height: 500px;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.6s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-section {
+            background: linear-gradient(45deg, rgba(255,255,255,0.95), rgba(245,245,255,0.95));
+            z-index: 2;
+        }
+
+        .signup-section {
+            background: linear-gradient(45deg, rgba(255,255,255,0.95), rgba(245,245,255,0.95));
+            z-index: 1;
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container.active .signup-section {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 3;
+        }
+
+        .container.active .login-section {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .form-header h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 3px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-container a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            width: 45px;
+            margin: 0 8px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 18px;
+        }
+
+        .social-container a:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+        }
+
+        .social-container a:nth-child(1) { background: linear-gradient(45deg, #4267B2, #3b5998); }
+        .social-container a:nth-child(2) { background: linear-gradient(45deg, #db4437, #ea4335); }
+        .social-container a:nth-child(3) { background: linear-gradient(45deg, #0e76a8, #0077b5); }
+        .social-container a:nth-child(4) { background: linear-gradient(45deg, #333, #000); }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .divider span {
+            padding: 0 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .divider:before, .divider:after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #6a11cb;
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(106, 17, 203, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        input:focus {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(106, 17, 203, 0.3);
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.6);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-footer a {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .form-footer a:hover {
+            color: #6a11cb;
+            text-decoration: underline;
+        }
+
+        .toggle-section {
+            flex: 0 0 40%;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toggle-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            top: -100px;
+            left: -100px;
+        }
+
+        .toggle-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            bottom: -80px;
+            right: -80px;
+        }
+
+        .toggle-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-content h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .toggle-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-input {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                max-width: 400px;
+            }
+
+            .toggle-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-section login-section">
+            <div class="form-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to continue your journey</p>
+            </div>
+
+            <div class="social-container">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+
+            <div class="divider">
+                <span>or use your email</span>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email Address" class="animate-input animate-delay-1">
+                </div>
+
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" class="animate-input animate-delay-2">
+                </div>
+
+                <button type="submit" class="animate-input animate-delay-3">Sign In</button>
+            </form>
+
+            <div class="form-footer animate-input animate-delay-4">
+                <p>Don't have an account? <a id="showSignup">Sign Up</a></p>
+            </div>
+        </div>
+
+        <div class="form-section signup-section">
+            <div class="form-header">
+                <h1>Create Account</h1>
+                <p>Join us and start your journey</p>
+            </div>
+
+            <div class="social-container">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+
+            <div class="divider">
+                <span>or use your email</span>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Full Name" class="animate-input animate-delay-1">
+                </div>
+
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email Address" class="animate-input animate-delay-2">
+                </div>
+
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Password" class="animate-input animate-delay-3">
+                </div>
+
+                <button type="submit" class="animate-input animate-delay-4">Sign Up</button>
+            </form>
+
+            <div class="form-footer animate-input animate-delay-5">
+                <p>Already have an account? <a id="showLogin">Sign In</a></p>
+            </div>
+        </div>
+
+        <div class="toggle-section">
+            <div class="toggle-content">
+                <h2>Hello, Friend!</h2>
+                <p>Enter your personal details and start your journey with us</p>
+                <button class="toggle-btn" id="toggleBtn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const showSignup = document.getElementById('showSignup');
+        const showLogin = document.getElementById('showLogin');
+        const toggleBtn = document.getElementById('toggleBtn');
+
+        // Function to toggle between login and signup
+        function toggleForm() {
+            container.classList.toggle('active');
+
+            // Update button text
+            if (container.classList.contains('active')) {
+                toggleBtn.textContent = 'Sign In';
+            } else {
+                toggleBtn.textContent = 'Sign Up';
+            }
+        }
+
+        // Add event listeners
+        showSignup.addEventListener('click', toggleForm);
+        showLogin.addEventListener('click', toggleForm);
+        toggleBtn.addEventListener('click', toggleForm);
+
+        // Add animation to form elements
+        const animateElements = () => {
+            const elements = document.querySelectorAll('.animate-input');
+            elements.forEach(el => {
+                el.style.animationPlayState = 'running';
+            });
+        };
+
+        // Trigger animations after a short delay
+        setTimeout(animateElements, 300);
+
+        // Add hover effect to social buttons
+        const socialButtons = document.querySelectorAll('.social-container a');
+        socialButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>

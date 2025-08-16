@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Hub | New Arrivals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1e90ff;
+            --primary-dark: #0066cc;
+            --secondary: #f8f9fa;
+            --text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --border: #e0e0e0;
+            --success: #4CAF50;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .main-header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 17px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text);
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 12px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile Navigation */
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 144, 255, 0.9), rgba(30, 144, 255, 0.8)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            margin-left: 15px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* New Arrivals Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 5% 50px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: none;
+            color: var(--text);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .wishlist.active {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .old-price {
+            font-size: 16px;
+            color: var(--light-text);
+            text-decoration: line-through;
+        }
+
+        .pre-order-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pre-order-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            transition: left 0.3s;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .contact-info {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                padding: 0 10px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 6203811578</span>
+                <span><i class="fas fa-envelope"></i> fashiontrend360@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100018404438643""><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/faishontrand?igsh=ZzVkZnNycmZ1aXBz"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/PrinceTiwariBR?t=YBz0b7UoHkchkceoOOwMCg&s=08"><i class="fab fa-twitter"></i></a>
+                <a href="https://in.pinterest.com/princetiwari360/"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="logo">Fashion<span>Trend</span></div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                    <li><a href="#" class="active">New Arrivals</a></li>
+                    <li><a href="#">Sale</a></li>
+                    <li><a href="contect2.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-buttons">
+                <button class="nav-btn"><i class="fas fa-search"></i></button>
+                <button class="nav-btn"><i class="fas fa-user"></i></button>
+                <button class="nav-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">Fashion<span>Hub</span></div>
+            <button class="close-menu"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#" class="active">New Arrivals</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>New Arrivals Collection</h1>
+            <p>Discover the latest trends in fashion with our exclusive new arrivals. Limited stock available!</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">Shop Now</a>
+                <a href="#" class="btn btn-primary">Pre-order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <div class="section-title">
+            <h2>New Arrivals</h2>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Women</button>
+            <button class="filter-btn">Men</button>
+            <button class="filter-btn">Accessories</button>
+            <button class="filter-btn">Footwear</button>
+        </div>
+
+        <div class="products">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Summer Floral Dress">
+                    <div class="product-actions">
+                        <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Dresses</div>
+                    <h3 class="product-title">Summer Floral Dress</h3>
+                    <div class="product-price">
+                        <span class="current-price">$59.99</span>
+                        <span class="old-price">$79.99</span>
+                    </div>
+                    <button class="pre-order-btn"><i class="fas fa-shopping-cart"></i> Pre-order Now</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Denim Jacket">
+                    <div class="product-actions">
+                        <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Jackets</div>
+                    <h3 class="product-title">Classic Denim Jacket</h3>
+                    <div class="product-price">
+                        <span class="current-price">$89.99</span>
+                        <span class="old-price">$99.99</span>
+                    </div>
+                    <button class="pre-order-btn"><i class="fas fa-shopping-cart"></i> Pre-order Now</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-badge">Sale</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Casual T-Shirt">
+                    <div class="product-actions">
+                        <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Tops</div>
+                    <h3 class="product-title">Oversized Casual T-Shirt</h3>
+                    <div class="product-price">
+                        <span class="current-price">$29.99</span>
+                        <span class="old-price">$39.99</span>
+                    </div>
+                    <button class="pre-order-btn"><i class="fas fa-shopping-cart"></i> Pre-order Now</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sneakers">
+                    <div class="product-actions">
+                        <button class="action-btn wishlist"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-shopping-bag"></i></button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Footwear</div>
+                    <h3 class="product-title">Urban Style Sneakers</h3>
+                    <div class="product-price">
+                        <span class="current-price">$79.99</span>
+                        <span class="old-price">$89.99</span>
+                    </div>
+                    <button class="pre-order-btn"><i class="fas fa-shopping-cart"></i> Pre-order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Fashion Hub</h3>
+                <p>We bring you the latest trends in fashion at affordable prices. Quality and style guaranteed.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100018404438643"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/faishontrand?igsh=ZzVkZnNycmZ1aXBz"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/PrinceTiwariBR?t=YBz0b7UoHkchkceoOOwMCg&s=08"><i class="fab fa-twitter"></i></a>
+                    <a href="https://in.pinterest.com/princetiwari360/"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="#">About Us</a>
+                <a href="arrivals.html">New Arrivals</a>
+                <a href="#">Best Sellers</a>
+                <a href="#">Sale</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <a href="#">Contact Us</a>
+                <a href="contect2.html">FAQs</a>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Fashion Street, Greater Noida</p>
+                <p><i class="fas fa-phone"></i> +91 6203811578</p>
+                <p><i class="fas fa-envelope"></i>fashiontrend360@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 8PM</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 FashionTrand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const burger = document.querySelector('.burger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.overlay');
+        const closeMenu = document.querySelector('.close-menu');
+
+        burger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Wishlist Toggle
+        const wishlistButtons = document.querySelectorAll('.wishlist');
+
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const icon = this.querySelector('i');
+
+                if (this.classList.contains('active')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    // Here you would typically add the product to wishlist
+                    alert('Added to wishlist!');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    // Here you would remove the product from wishlist
+                    alert('Removed from wishlist!');
+                }
+            });
+        });
+
+        // Pre-order Button Functionality
+        const preOrderButtons = document.querySelectorAll('.pre-order-btn');
+
+        preOrderButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productTitle = productCard.querySelector('.product-title').textContent;
+
+                // Add to cart functionality would go here
+                alert(`${productTitle} added to cart!`);
+
+                // Update cart count
+                const cartCount = document.querySelector('.cart-count');
+                cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            });
+        });
+
+        // Filter Buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Here you would filter the products based on the selected category
+                // For demonstration, we'll just show an alert
+                alert(`Showing ${this.textContent} products`);
+            });
+        });
+    </script>
+</body>
+</html>
